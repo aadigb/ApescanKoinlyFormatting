@@ -23,7 +23,7 @@ except Exception as e:
 # Prepare the data
 # Creating Koinly universal import format
 koinly_format = pd.DataFrame()
-koinly_format['Date'] = pd.to_datetime(df['DateTime (UTC)']).dt.strftime('%Y-%m-%d %H:%M:%S UTC')
+koinly_format['Date'] = pd.to_datetime(df['DateTime (UTC)'], errors='coerce').dt.strftime('%Y-%m-%d %H:%M:%S UTC')
 koinly_format['Sent Amount'] = df['Value_OUT(APE)']
 koinly_format['Sent Currency'] = 'APE'
 koinly_format['Received Amount'] = df['Value_IN(APE)']
